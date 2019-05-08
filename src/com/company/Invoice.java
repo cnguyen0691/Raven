@@ -1,5 +1,6 @@
 package com.company;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Invoice {
@@ -9,7 +10,10 @@ public class Invoice {
 
     private double Session;
     private double Questions;
-    private double price;
+    private int price;
+
+    DecimalFormat df = new DecimalFormat(".00");
+
 
     public double getSession() {
         return Session;
@@ -27,11 +31,11 @@ public class Invoice {
         Questions = questions;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -65,6 +69,7 @@ public class Invoice {
         this.contact = contact;
     }
 
+    //call input user information
     public void inputUser(){
         Scanner input = new Scanner(System.in);
         System.out.println("Enter Name: ");
@@ -75,6 +80,8 @@ public class Invoice {
         setContact(input.nextLine());
 
     }
+
+    //call invoice
     public void displayInvoice(int d){
         setPrice(d);
         setSession(100.00);
@@ -89,9 +96,9 @@ public class Invoice {
         System.out.println(getAddress());
         System.out.println(getContact());
         System.out.println("Items:");
-        System.out.println("Quantity  Description  Price  Total");
-        System.out.println("1 Session: " + getSession() );
-        System.out.println(getPrice()+" Question " + getQuestions()+"\t" + total );
+        System.out.println("Quantity \t Description\tPrice\tTotal");
+        System.out.println("1 Session:\t\t " + getSession() );
+        System.out.println(getPrice()+" Question:\t\t " + getQuestions()+"\t\t" + df.format(total) );
         System.out.println("Total Due: " + totalCost);
         System.out.println("Thank you for doing business");
     }

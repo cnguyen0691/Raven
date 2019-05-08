@@ -54,10 +54,6 @@ public class Main {
 
 
         ArrayList<String> historyList = new ArrayList<>();
-        String happyAns = "I am so happy for you...Yay...";
-        String sadAnsw = "Really! Why, tell me more!";
-        String okayAns = "Meh.";
-
 
         while(true){
             System.out.println("Good morning, how are you feeling today?");
@@ -70,7 +66,7 @@ public class Main {
 
             if(ans.equalsIgnoreCase("q")){
                 System.out.println("Have a good day!");
-                historyList.add("Have a good day!\n");
+                historyList.add("Have a good day");
                 break;
             }
 
@@ -90,22 +86,26 @@ public class Main {
             }
             //Compare between positive and negative
             if (count > nCount) {
-                System.out.println(happyAns);
-                historyList.add(happyAns+"\n");
-
+                System.out.println("I am so happy for you...Yay...");
+                historyList.add("I am so happy for you...Yay...");
             } else if (count < nCount) {
-                System.out.println(sadAnsw);
-                historyList.add(sadAnsw+"\n");
+                System.out.println("Really! Why, tell me more!");
+                historyList.add("Really! Why, tell me more!");
             } else if (count == nCount) {
-                System.out.println(okayAns);
-                historyList.add(okayAns+"\n");
+                System.out.println("Meh.");
+                historyList.add("Meh.");
             }
 
         }
+        //Print invoice and history chat
         invoice.inputUser();
         invoice.displayInvoice(historyList.size());
-        System.out.println(historyList+"\n");
-
+        System.out.println("====================================");
+        System.out.println("History chat list");
+        System.out.println("How are you doing today???");
+        for(String h: historyList) {
+            System.out.println(h );
+        }
     }
 }
 
