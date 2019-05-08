@@ -50,12 +50,13 @@ public class Main {
         negative.add("moody");
         negative.add("anxious");
 
+        Invoice invoice = new Invoice();
+
 
         ArrayList<String> historyList = new ArrayList<>();
         String happyAns = "I am so happy for you...Yay...";
         String sadAnsw = "Really! Why, tell me more!";
         String okayAns = "Meh.";
-
 
 
         while(true){
@@ -69,6 +70,7 @@ public class Main {
 
             if(ans.equalsIgnoreCase("q")){
                 System.out.println("Have a good day!");
+                historyList.add("Have a good day!\n");
                 break;
             }
 
@@ -100,7 +102,8 @@ public class Main {
             }
 
         }
-
+        invoice.inputUser();
+        invoice.displayInvoice(historyList.size());
         System.out.println(historyList+"\n");
 
     }
